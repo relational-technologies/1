@@ -12,7 +12,7 @@
     'author': "Smart Way Business Solutions",
     'website': "https://www.smartway.co",
     'category': 'Accounting',
-    'version': '14.0.1.1',
+    'version': '12.0.1.1',
     "depends" : ['base','account','purchase', 'sale', 'sale_management','stock', 'purchase_stock', 'sale_stock'],
     'data': [
             "views/customer_invoice.xml",

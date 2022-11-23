@@ -26,7 +26,7 @@ class AccountPayment(models.Model):
             self = self.with_context(override_currency_rate=self.manual_currency_rate)
         return super(AccountPayment, self)._create_transfer_entry(amount=amount)
 
-    #@api.one
+    @api.one
     @api.depends('invoice_ids', 'amount', 'payment_date', 'currency_id','manual_currency_rate')
     def _compute_payment_difference(self):
         if self.manual_currency_rate_active:

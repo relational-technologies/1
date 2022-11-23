@@ -8,14 +8,14 @@ class PurchaseOrder(models.Model):
     manual_currency_rate_active = fields.Boolean('Apply Manual Exchange')
     manual_currency_rate = fields.Float('Rate', digits=(12, 4))
 
-    #@api.multi
+    @api.multi
     def button_confirm(self):
         if self.manual_currency_rate_active:
             self = self.with_context(override_currency_rate=self.manual_currency_rate)
         result = super(PurchaseOrder, self).button_confirm()
         return result
         
-    #@api.multi
+    @api.multi
     def button_approve(self, force=False):
         if self.manual_currency_rate_active:
             self = self.with_context(override_currency_rate=self.manual_currency_rate)
